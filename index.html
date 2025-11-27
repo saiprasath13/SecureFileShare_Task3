@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Secure File Sharing - Task 3</title>
+</head>
+<body style="font-family: Arial, sans-serif; text-align: center; margin-top: 40px;">
+
+    <h2> Secure File Sharing System (AES)</h2>
+
+    <!-- Upload form -->
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">Upload & Encrypt</button>
+    </form>
+
+    <br>
+
+    <!-- Show flash messages -->
+    {% for msg in get_flashed_messages() %}
+        <p style="color: green;">{{ msg }}</p>
+    {% endfor %}
+
+    <hr>
+
+    <h3>📂 Encrypted Files</h3>
+
+    {% if files %}
+        <ul style="list-style: none; padding: 0;">
+            {% for f in files %}
+                <li style="margin: 5px 0;">
+                    {{ f }}
+                    - <a href="{{ url_for('download', filename=f) }}">Download (decrypted)</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No encrypted files yet.</p>
+    {% endif %}
+
+</body>
+</html>
