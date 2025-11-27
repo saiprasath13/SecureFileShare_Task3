@@ -38,14 +38,12 @@ Open browser:
 
  http://127.0.0.1:5000
 
- Demo Screenshot
-
-(Attach your working photo here)
 
 Encryption Details
 
 Algorithm: AES
 
 Mode: Fernet (AES-256 + HMAC)
+
 
 Key is securely generated and used for both encryption and decryption.
